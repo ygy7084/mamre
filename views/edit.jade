@@ -1,0 +1,27 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+  body
+    h1
+      a(href='/member') 회원관리
+    ul
+      each member in members
+        li
+          a(href='/member/'+member.phone)= member.phone
+    artcle
+      if member
+        h2
+          회원정보수정
+        p
+          ='ID= '+member.ID
+        p
+          ='전화번호= '+member.phone
+        p
+          ='포인트= '+member.point
+    artcle
+      form(action='/member/'+member.phone+'/edit' method='post')
+        p
+          input(type='text' name='phone' placeholder='phone')
+        p
+          input(type='submit' value='확인')
